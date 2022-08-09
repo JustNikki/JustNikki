@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: black;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.knopka {
+border: thick rgba(255, 255, 255, 0.50);
+background-image: linear-gradient(60deg, #2370b9 10%, #6cd7f5 50%, #6136c7 100%);
+font-family: 'Helvetica', 'Arial', sans-serif;
+font-size: 15px;
+text-transform: uppercase;
+color: white;
+cursor: pointer;
+border-radius: 10px;
+border-color: rgb(0, 128, 128);
+width: 200px;
+height: 50px;
+position: absolute;
+top: 450px;
+left: 320px;
+}
+.knopka:hover { background: rgb(65, 105, 225); } /* при наведении курсора мышки */
+.knopka:active { background: rgb(70, 130, 160); }
+body {
+  height: 100vh;
+  background-image: url(file:///C:/Users/admin/Desktop/jslessons/example/photo_business.jpg);
+  background-position: center;
+  background-size: cover;
+}
+section {
+  width: 600px;
+  height: 600px;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 0% 30% 30% 30%;
+}
+div {
+  position: static;
+}
