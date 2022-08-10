@@ -1,0 +1,60 @@
+SELECT 
+	products.name AS name,
+    products.category AS category,
+    products.units AS units,
+    products.weight AS weight,
+    products_stores.price AS price
+FROM
+	products
+INNER JOIN products_stores ON products_stores.id_product = products.id_product
+WHERE 
+products.units = 'мл' AND CAST(products_stores.date_upd AS date) = '2019-06-13';
+
+SELECT 
+	id_transaction AS id_transaction,
+    category AS category,
+    name AS name
+FROM
+	transactions
+INNER JOIN products ON products.id_product = transactions.id_product
+ORDER BY 
+id_transaction
+LIMIT
+10
+
+SELECT 
+DISTINCT transactions.date AS date,
+weather.temp AS temp,
+weather.rain AS rain,
+transactions.id_transaction AS id_transaction
+FROM
+	transactions
+INNER JOIN weather ON CAST(weather.date AS date) = CAST(transactions.date AS date)
+ORDER BY 
+	date DESC;
+  
+  SELECT 
+transactions.date AS date,
+transactions.id_transaction AS id_transaction,
+products.category AS category,
+products.name AS name
+FROM
+transactions
+INNER JOIN products ON products.id_product = transactions.id_product
+WHERE 
+products.category = 'масло сливочное и маргарин' AND
+CAST(transactions.date AS date) = '2019-06-20';
+
+SELECT
+name,
+CASE
+WHEN weight IS NULL AND units= '%' THEN '72'
+WHEN weight IS NULL AND units= 'кг' THEN '1'
+WHEN weight IS NULL AND units= 'л' THEN '1'
+WHEN weight IS NULL AND units= 'мл' THEN '805'
+WHEN weight IS NULL AND units= 'г' THEN '402'
+ELSE weight END AS weight_info
+FROM
+products;
+
+
